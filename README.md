@@ -1,24 +1,24 @@
-# README
+# Rails application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a test application to understand the relation between:
 
-Things you may want to cover:
+- [Solid Queue](https://github.com/rails/solid_queue)
+- [yabeda-prometheus](https://github.com/yabeda-rb/yabeda-prometheus)
+- [yabeda-activejob](https://github.com/Fullscript/yabeda-activejob)
 
-* Ruby version
+to be able to monitor SolidQueue jobs with Prometheus.
 
-* System dependencies
+## How to run
 
-* Configuration
+```bash
+bundle install
+RAILS_LOG_LEVEL=debug RAILS_ENV=production bin/jobs start
+```
 
-* Database creation
+## What it does
 
-* Database initialization
+- It has a single TalkerJob that runs every 1 second
 
-* How to run the test suite
+## Expectations
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- There should be metrics exposed at `http://localhost:9394/metrics`
